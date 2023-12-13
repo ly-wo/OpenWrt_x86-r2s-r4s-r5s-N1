@@ -1,0 +1,22 @@
+name: makefile
+
+on: 
+  workflow_dispatch:
+    inputs:
+      param:
+        description: 'parameter'
+        required: false
+        default: ''
+
+env:
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: Ubuntu-22.04
+    steps:
+    - name: Test
+      run: |
+        now=$(date -d "$(date)" +%s)
+        echo $now
